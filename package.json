@@ -43,14 +43,12 @@
         "jest-sonar-reporter": "^2.0.0",
         "semantic-release": "^21.1.2",
         "ts-jest": "^29.1.2",
-        "typescript": "^5.3.3"
+        "typescript": "^5.3.3",
+        "rimraf": "^5.0.5"
     },
     "jestSonar": {
         "reportPath": "reports",
         "reportFile": "test-report.xml",
         "indent": 4
-    },
-    "dependencies": {
-        "rimraf": "^6.0.1"
     }
 }
