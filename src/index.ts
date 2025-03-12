@@ -34,13 +34,18 @@ export function secureRandomFloat(): number {
  * using the full range of available entropy
  */
 export function secureRandomRange(min: number, max: number): number {
-    if (min > max) throw new Error("Min cannot be greater than max");
+    if (min > max) {
+        throw new Error("Min cannot be greater than max");
+    }
+
     if (!Number.isInteger(min) || !Number.isInteger(max)) {
         throw new Error("Min and max must be integers");
     }
 
     const range = max - min + 1;
-    if (range <= 0) throw new Error("Range is too large");
+    if (range <= 0) {
+        throw new Error("Range is too large");
+    }
 
     // Use randomInt for small ranges as it's optimized for this case
     if (range <= 281474976710656) {
@@ -65,8 +70,13 @@ export function secureUUID(): string {
  * Securely picks n unique items from an array
  */
 export function securePickSet<T>(array: T[], count: number): T[] {
-    if (count < 0) throw new Error("Count must be non-negative");
-    if (count > array.length) throw new Error("Count cannot exceed array length");
+    if (count < 0) {
+        throw new Error("Count must be non-negative");
+    }
+
+    if (count > array.length) {
+        throw new Error("Count cannot exceed array length");
+    }
 
     return secureShuffle(array).slice(0, count);
 }
@@ -75,7 +85,9 @@ export function securePickSet<T>(array: T[], count: number): T[] {
  * Securely picks one random item from an array
  */
 export function securePickOne<T>(array: T[]): T {
-    if (array.length === 0) throw new Error("Array cannot be empty");
+    if (array.length === 0) {
+        throw new Error("Array cannot be empty");
+    }
 
     return array[randomInt(0, array.length)];
 }
