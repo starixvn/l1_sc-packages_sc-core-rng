@@ -11,7 +11,7 @@ export default {
     },
     testPathIgnorePatterns: ["/node_modules/", "/dist/"],
     coverageDirectory: "reports/coverage",
-    coverageReporters: ["text", "html", "cobertura"],
+    coverageReporters: ["text", "html", "cobertura", "clover", "lcov"],
     reporters: [
         "default",
         [
