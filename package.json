@@ -3,13 +3,13 @@
     "version": "1.0.1",
     "description": "Secure RNG core functions for games using node:crypto",
     "type": "module",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
     "engines": {
         "node": ">=18.0.0"
     },
     "scripts": {
-        "build": "rimraf dist && tsc",
+        "build": "rimraf lib && tsc",
         "test": "jest",
         "test:watch": "jest --watch",
         "test-coverage": "jest --coverage",
