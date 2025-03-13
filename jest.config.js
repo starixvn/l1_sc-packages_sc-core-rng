@@ -1,5 +1,5 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
-export default {
+module.exports = {
     preset: "ts-jest",
     testEnvironment: "node",
     extensionsToTreatAsEsm: [".ts"],
@@ -9,9 +9,9 @@ export default {
     transform: {
         "^.+\\.tsx?$": ["ts-jest", { useESM: true }],
     },
-    testPathIgnorePatterns: ["/node_modules/", "/dist/"],
+    testPathIgnorePatterns: ["/node_modules/", "/lib/"],
     coverageDirectory: "reports/coverage",
-    coverageReporters: ["text", "html", "cobertura", "clover", "lcov"],
+    coverageReporters: ["text", "html", "cobertura"],
     reporters: [
         "default",
         [
