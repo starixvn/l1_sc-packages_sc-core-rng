@@ -1,5 +1,5 @@
 // src/index.test.ts
-import { secureShuffle, securePickSet, securePickOne, secureRandomBool, secureRandomFloat, secureRandomRange, secureUUID } from "./index.js";
+import { secureShuffle, securePickSet, securePickOne, secureRandomBool, secureRandomFloat, secureRandomRange, secureUUID } from "../src/index";
 
 describe("RNG Functions", () => {
     const testArray = [1, 2, 3, 4, 5];
