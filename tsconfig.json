@@ -1,8 +1,5 @@
 {
     "compilerOptions": {
-        "target": "ES2022",
-        "module": "ES2022",
-        "moduleResolution": "node",
         "rootDir": "./src",
         "outDir": "./lib",
         "lib": ["es5", "es6"],
@@ -10,11 +7,8 @@
         "declaration": true,
         "declarationMap": true,
         "resolveJsonModule": true,
-        "allowJs": true,
-        "strict": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true
+        "moduleResolution": "node",
+        "allowJs": true
     },
     "include": ["src/**/*"],
     "exclude": ["node_modules", "lib"]
