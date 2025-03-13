@@ -1,6 +1,6 @@
 {
     "name": "sc-core-rng",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Secure RNG core functions for games using node:crypto",
     "type": "module",
     "main": "lib/index.js",
