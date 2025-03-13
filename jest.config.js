@@ -11,7 +11,7 @@ module.exports = {
     },
     testPathIgnorePatterns: ["/node_modules/", "/lib/"],
     coverageDirectory: "reports/coverage",
-    coverageReporters: ["text", "html", "cobertura"],
+    coverageReporters: ["text", "html", "cobertura", "clover", "lcov"],
     reporters: [
         "default",
         [
