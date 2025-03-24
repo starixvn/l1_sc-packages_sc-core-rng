@@ -1,5 +1,14 @@
 // src/index.test.ts
-import { secureShuffle, securePickSet, securePickOne, secureRandomBool, secureRandomFloat, secureRandomRange, secureUUID } from "../src/index";
+import {
+    secureShuffle,
+    securePickSet,
+    securePickOne,
+    secureRandomBool,
+    secureRandomFloat,
+    secureRandomRange,
+    secureUUID,
+    secureWeightedPick,
+} from "../src/index";
 
 describe("RNG Functions", () => {
     const testArray = [1, 2, 3, 4, 5];
@@ -58,11 +67,38 @@ describe("RNG Functions", () => {
         expect(result).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/);
     });
 
+    test("secureWeightedPick should return values that respect weight proportions over many iterations", () => {
+        const items = ["A", "B", "C", "D"];
+        const weights = [1, 2, 3, 0];
+        const iterations = 10000;
+        const counts = { A: 0, B: 0, C: 0, D: 0 } as any;
+
+        for (let i = 0; i < iterations; i++) {
+            const result = secureWeightedPick(items, weights);
+            counts[result]++;
+        }
+
+        // Allow for some statistical variance
+        const total = iterations;
+        const expectedA = (weights[0] / 6) * total;
+        const expectedB = (weights[1] / 6) * total;
+        const expectedC = (weights[2] / 6) * total;
+
+        console.log(counts);
+        // Check within 2% of expected values
+        expect(Math.abs(counts.A - expectedA)).toBeLessThan(expectedA * 0.02);
+        expect(Math.abs(counts.B - expectedB)).toBeLessThan(expectedB * 0.02);
+        expect(Math.abs(counts.C - expectedC)).toBeLessThan(expectedC * 0.02);
+        expect(counts.D).toBe(0);
+    });
+
     describe("Edge Cases", () => {
         test("should handle basic edge cases", () => {
             expect(() => securePickSet(testArray, -1)).toThrow();
             expect(() => securePickSet(testArray, 6)).toThrow();
             expect(() => securePickOne([])).toThrow();
+            expect(() => secureWeightedPick([], [])).toThrow("Array cannot be empty");
+            expect(() => secureWeightedPick(["A"], [1, 2])).toThrow("Array and weights must have the same length");
         });
 
         test("should handle secureRandomRange edge cases", () => {

@@ -91,3 +91,30 @@ export function securePickOne<T>(array: T[]): T {
 
     return array[randomInt(0, array.length)];
 }
+
+export function secureWeightedPick<T>(array: T[], weights: number[]): T {
+    if (array.length === 0) {
+        throw new Error("Array cannot be empty");
+    }
+
+    if (array.length !== weights.length) {
+        throw new Error("Array and weights must have the same length");
+    }
+
+    const totalWeight = weights.reduce((sum, weight) => sum + weight, 0);
+
+    const randomValue = secureRandomFloat() * totalWeight;
+
+    let cumulativeWeight = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        cumulativeWeight += weights[i];
+
+        if (randomValue <= cumulativeWeight) {
+            return array[i];
+        }
+    }
+
+    // If we exit the loop without returning, something went wrong
+    throw new Error("Failed to pick an item from the array");
+}
