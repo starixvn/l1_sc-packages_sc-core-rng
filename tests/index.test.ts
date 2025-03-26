@@ -70,7 +70,7 @@ describe("RNG Functions", () => {
     test("secureWeightedPick should return values that respect weight proportions over many iterations", () => {
         const items = ["A", "B", "C", "D"];
         const weights = [1, 2, 3, 0];
-        const iterations = 10000;
+        const iterations = 100000;
         const counts = { A: 0, B: 0, C: 0, D: 0 } as any;
 
         for (let i = 0; i < iterations; i++) {
@@ -84,7 +84,6 @@ describe("RNG Functions", () => {
         const expectedB = (weights[1] / 6) * total;
         const expectedC = (weights[2] / 6) * total;
 
-        console.log(counts);
         // Check within 2% of expected values
         expect(Math.abs(counts.A - expectedA)).toBeLessThan(expectedA * 0.02);
         expect(Math.abs(counts.B - expectedB)).toBeLessThan(expectedB * 0.02);
