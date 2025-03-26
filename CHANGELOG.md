@@ -1,3 +1,10 @@
+## [1.0.1](https://git3.nexdev.net/l1/sc-packages/sc-core-rng/compare/v1.0.0...v1.0.1) (2025-03-26)
+
+
+### Bug Fixes
+
+* add variables NPM_LANG_TS ([95c958d](https://git3.nexdev.net/l1/sc-packages/sc-core-rng/commit/95c958dd3c1ce3094cd232d8fbdf28bbb7f4ba1f))
+
 # 1.0.0 (2025-03-26)
 
 
