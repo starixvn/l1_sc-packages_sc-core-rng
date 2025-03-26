@@ -1,3 +1,10 @@
+# [1.1.0](https://git3.nexdev.net/l1/sc-packages/sc-core-rng/compare/v1.0.1...v1.1.0) (2025-03-26)
+
+
+### Features
+
+* bump version to 1.10 ([2c998f3](https://git3.nexdev.net/l1/sc-packages/sc-core-rng/commit/2c998f369d836b036987100bfc20d6a15c8cea22))
+
 ## [1.0.1](https://git3.nexdev.net/l1/sc-packages/sc-core-rng/compare/v1.0.0...v1.0.1) (2025-03-26)
 
 
